@@ -32,7 +32,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/BeSammenLogo"
+            android:src="@drawable/besammenlogo"
             >
         </ImageView>
 
@@ -112,7 +112,7 @@
             android:layout_marginStart="8dp"
             android:text="Log in"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold">
 
         </TextView>
@@ -125,11 +125,28 @@
         android:text="Glemt adgangskode, klik her"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textSize="17sp"
         android:id="@+id/forgotPassword"
         android:textColor="@color/black"
         android:layout_below="@id/login"
         android:layout_marginTop="17dp"
         android:textAlignment="center">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/signUp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="12dp"
+        android:textStyle="bold"
+        android:text="Er du ny til BeSammen opret en bruger her"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@color/black">
 
     </TextView>
 
@@ -151,10 +168,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="8dp"
-            android:text="Ny bruger! Opret dig her"
+            android:text="Opret bruger"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold">
 
         </TextView>
