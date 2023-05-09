@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         mlogIn = findViewById(R.id.login);
         msignUp = findViewById(R.id.signUp);
 
+        System.out.println("hej");
+
 
         msignUp.setOnClickListener(new View.OnClickListener() {
             @Override
