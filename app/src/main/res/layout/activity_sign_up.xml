@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- Arne -->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".SignUp">
 
 
     <RelativeLayout
@@ -18,36 +15,26 @@
         android:layout_centerInParent="true">
     </RelativeLayout>
 
-    <!-- Logo And image -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_above="@+id/centerLine"
-
+        android:layout_marginBottom="130dp"
         android:layout_marginTop="45dp"
         android:orientation="vertical">
-
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/BeSammenLogo"
-            >
-        </ImageView>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="260dp"
-            android:layout_gravity="center"
-            android:src="@drawable/img">
+            android:layout_height="match_parent"
+            android:src="@drawable/BeSammenLogo">
 
         </ImageView>
 
 
     </LinearLayout>
 
-    <!-- Sign in email -->
+    <!-- Sign up email -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -60,18 +47,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/logInEmail"
-            android:alpha="0.8"
+            android:id="@+id/signUpEmail"
             android:hint="Email"
+            android:alpha="0.8"
             android:background="#78A5A3"
             android:inputType="textEmailAddress">
 
         </EditText>
-
-
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Sign in password -->
+    <!-- Sign up password -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,7 +70,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/logInPassword"
+            android:id="@+id/signUpPassword"
             android:alpha="0.8"
             android:background="#78A5A3"
             android:hint="Kodeord">
@@ -93,7 +78,7 @@
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Login button -->
+    <!-- Sign up button -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -102,7 +87,7 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button_design"
         android:layout_below="@id/password"
-        android:id="@+id/login">
+        android:id="@+id/signUp">
 
 
         <TextView
@@ -110,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
-            android:text="Log in"
+            android:text="Opret bruger"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold">
@@ -118,46 +103,20 @@
         </TextView>
     </RelativeLayout>
 
-    <!-- Go to forgot password clickable text -->
+    <!--Already have an account - go back to main activity -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Glemt adgangskode, klik her"
+        android:text="Har allerede en konto? Tryk her"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:id="@+id/forgotPassword"
-        android:textColor="@color/black"
-        android:layout_below="@id/login"
-        android:layout_marginTop="17dp"
+        android:id="@+id/goToMainActivity"
+        android:textColor="#006C75"
+        android:textStyle="bold"
+        android:layout_below="@id/signUp"
+        android:layout_marginTop="22dp"
         android:textAlignment="center">
 
     </TextView>
-
-    <!--Sign up button -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:id="@+id/signUp"
-        android:background="@drawable/button_design">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="8dp"
-            android:text="Ny bruger! Opret dig her"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold">
-
-        </TextView>
-    </RelativeLayout>
 
 </RelativeLayout>
