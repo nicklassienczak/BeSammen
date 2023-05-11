@@ -35,6 +35,15 @@
             android:src="@drawable/besammenlogo"
             >
         </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Et fælleskab om sygdom"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp">
+
+        </TextView>
 
         <ImageView
             android:layout_width="match_parent"
