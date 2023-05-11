@@ -30,6 +30,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/beSammenImg"
             android:layout_gravity="center"
             android:src="@drawable/img_1">
         </ImageView>

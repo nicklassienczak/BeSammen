@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 public class SignUp extends AppCompatActivity {
 
-    private EditText msignUpUserName, msignUpAge;
-    private TextView mgoToMainActivity;
+    private EditText mgetUserName, mgetAge, mgetDiagnose;
     private RelativeLayout msaveProfile;
     private ImageView mgetUserImageInImageView;
     private RadioButton mradio_man, mradio_woman, mradio_other;
@@ -26,21 +25,17 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        msignUpAge = findViewById(R.id.signUpAge);
+        mgetAge = findViewById(R.id.getAge);
+        mgetUserName = findViewById(R.id.getUserName);
+        mgetDiagnose = findViewById(R.id.getDiagnose);
         mgetUserImageInImageView = findViewById(R.id.getUserImageInImageView);
-        mgoToMainActivity = findViewById(R.id. goToMainActivity);
         msaveProfile = findViewById(R.id.saveProfile);
         mradio_man = findViewById(R.id.radio_man);
         mradio_woman = findViewById(R.id.radio_woman);
         mradio_other = findViewById(R.id.radio_other);
 
 
-        mgoToMainActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUp.this, MainActivity.class));
-            }
-        });
+
 
 
 
@@ -71,4 +66,7 @@ public class SignUp extends AppCompatActivity {
                     break;
         }
     }
+
+
+
 }

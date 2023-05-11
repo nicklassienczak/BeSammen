@@ -53,8 +53,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/centerLine"
-        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/centerLine"
+        android:layout_marginBottom="10dp"
         android:id="@+id/userName"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp">
@@ -79,13 +79,14 @@
         android:layout_below="@+id/userName"
         android:layout_marginBottom="20dp"
         android:id="@+id/age"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/signUpAge"
+            android:id="@+id/getAge"
             android:background="#FFFFFF"
             android:hint="Alder"
             android:alpha="0.8"
@@ -94,12 +95,35 @@
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- What is your diagnose? -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/age"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/diagnose"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/getDiagnose"
+            android:background="#FFFFFF"
+            android:hint="Diagnose"
+            android:alpha="0.8"
+            android:inputType="text">
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
     <!-- Choose which gender -->
     <RadioGroup
         android:id="@+id/genderRadio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/age"
+        android:layout_below="@id/diagnose"
         android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -159,20 +183,6 @@
         </TextView>
     </RelativeLayout>
 
-    <!--Already have an account - go back to main activity -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Har allerede en konto? Tryk her"
-        android:id="@+id/goToMainActivity"
-        android:textColor="#006C75"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_above="@id/saveProfile"
-        android:layout_marginTop="22dp"
-        android:textAlignment="center">
-
-    </TextView>
 
     <ProgressBar
         android:layout_width="wrap_content"
