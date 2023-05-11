@@ -13,10 +13,10 @@ import android.widget.TextView;
 
 public class SignUp extends AppCompatActivity {
 
-    private EditText msignUpEmail, msignUpPassword, msignUpUserName, msignUpAge;
+    private EditText msignUpUserName, msignUpAge;
     private TextView mgoToMainActivity;
-    private RelativeLayout msignUp;
-    private ImageView mbeSammenLogo;
+    private RelativeLayout msaveProfile;
+    private ImageView mgetUserImageInImageView;
     private RadioButton mradio_man, mradio_woman, mradio_other;
 
 
@@ -26,23 +26,14 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        msignUpEmail = findViewById(R.id.signUpEmail);
-        msignUpPassword = findViewById(R.id.signUpPassword);
-        msignUpUserName = findViewById(R.id.signUpUserName);
         msignUpAge = findViewById(R.id.signUpAge);
+        mgetUserImageInImageView = findViewById(R.id.getUserImageInImageView);
         mgoToMainActivity = findViewById(R.id. goToMainActivity);
-        msignUp = findViewById(R.id.signUp);
-        mbeSammenLogo = findViewById(R.id.beSammenLogo);
+        msaveProfile = findViewById(R.id.saveProfile);
         mradio_man = findViewById(R.id.radio_man);
         mradio_woman = findViewById(R.id.radio_woman);
         mradio_other = findViewById(R.id.radio_other);
 
-        mbeSammenLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUp.this, MainActivity.class));
-            }
-        });
 
         mgoToMainActivity.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,33 +15,45 @@
         android:layout_centerInParent="true">
     </RelativeLayout>
 
-
-    <!-- BeSammen logo -->
-    <LinearLayout
+    
+    <!-- Info text -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_above="@+id/userName"
-        android:layout_marginTop="45dp"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/besammenlogo"
-            android:id="@+id/beSammenLogo">
+        android:text="Opret din profil"
+        android:textColor="@color/BeSammenDarkGreen"
+        android:textStyle="bold"
+        android:textSize="31sp"
+        android:textAlignment="center"
+        android:id="@+id/signUpText"
+        android:layout_marginTop="45dp">
 
-        </ImageView>
+    </TextView>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/signUpText"
+    android:layout_marginTop="50dp"
+    android:id="@+id/getUserImage"
+    app:cardCornerRadius="150dp">
 
 
-    </LinearLayout>
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/img_3"
+        android:id="@+id/getUserImageInImageView"
+        android:scaleType="centerCrop">
+    </ImageView>
+</androidx.cardview.widget.CardView>
 
     <!-- What is your name -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/age"
+        android:layout_below="@+id/centerLine"
         android:layout_marginBottom="20dp"
         android:id="@+id/userName"
         android:layout_marginRight="30dp"
@@ -50,11 +62,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/signUpUserName"
+            android:id="@+id/getUserName"
             android:hint="Navn"
             android:background="#FFFFFF"
             android:alpha="0.8"
-            android:inputType="textEmailAddress">
+            android:inputType="textCapWords">
 
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,7 +76,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/genderRadio"
+        android:layout_below="@+id/userName"
         android:layout_marginBottom="20dp"
         android:id="@+id/age"
         android:layout_marginRight="30dp"
@@ -87,7 +99,8 @@
         android:id="@+id/genderRadio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/centerLine"
+        android:layout_below="@id/age"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="10dp"
@@ -97,6 +110,7 @@
             android:id="@+id/radio_woman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="Mand" />
 
@@ -104,6 +118,7 @@
             android:id="@+id/radio_man"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="Kvinde" />
 
@@ -111,55 +126,12 @@
             android:id="@+id/radio_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
             android:onClick="onRadioButtonClicked"
             android:text="Andet" />
     </RadioGroup>
 
-    <!-- Sign up email -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/centerLine"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/email"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/signUpEmail"
-            android:hint="Email"
-            android:alpha="0.8"
-            android:background="#78A5A3"
-            android:inputType="textEmailAddress">
-
-        </EditText>
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-    <!-- Sign up password -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/email"
-        android:layout_marginTop="10dp"
-        android:id="@+id/password"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        app:passwordToggleEnabled="true">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/signUpPassword"
-            android:alpha="0.8"
-            android:background="#78A5A3"
-            android:hint="Kodeord">
-
-        </EditText>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Sign up button -->
     <RelativeLayout
@@ -169,8 +141,9 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_design"
-        android:layout_below="@id/password"
-        android:id="@+id/signUp">
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/saveProfile">
 
 
         <TextView
@@ -195,10 +168,21 @@
         android:textColor="#006C75"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_below="@id/signUp"
+        android:layout_above="@id/saveProfile"
         android:layout_marginTop="22dp"
         android:textAlignment="center">
 
     </TextView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/userName"
+        android:id="@+id/progressBarSignUp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+    </ProgressBar>
 
 </RelativeLayout>
