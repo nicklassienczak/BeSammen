@@ -2,9 +2,7 @@ package com.example.besammen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,22 +26,8 @@ public class MainActivity extends AppCompatActivity {
         mlogIn = findViewById(R.id.login);
         msignUp = findViewById(R.id.signUp);
 
-        System.out.println("hej");
 
 
-        msignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
-            }
-        });
-
-        mforgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ForgotPassword.class));
-            }
-        });
 
     }
 }
