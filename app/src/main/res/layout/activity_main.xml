@@ -108,7 +108,7 @@
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="30dp"
-        android:id="@+id/signSmsAuth"
+        android:id="@+id/sendSmsAuth"
         android:background="@drawable/button_design">
 
 
@@ -128,7 +128,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/signSmsAuth"
+        android:layout_below="@id/sendSmsAuth"
         android:id="@+id/progressBarMain"
         android:layout_marginTop="5dp"
         android:visibility="invisible">
