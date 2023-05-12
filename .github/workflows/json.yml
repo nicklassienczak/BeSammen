@@ -1,37 +1,48 @@
 name: Build and Deploy
-
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
-  build_and_deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up JDK
-        uses: actions/setup-java@v1
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build-prod
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
         with:
-            java-version: '17.x'
-            architecture: 'x64'
-            using: 'node16'
-
-      - name: Build with Gradle
-        run: ./gradlew
-
-      - name: Authenticate with Firebase
+          name: dist
+          path: dist
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+          path: dist
+      - name: Set up Firebase CLI
+        uses: w9jds/firebase-action@master
+        with:
+          args: setup:emulators:firestore
+          firebase-version: '9.8.0'
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_SERVICE_JSON }}
+      - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-
-      - name: Build and deploy APK
-        run: |
-          ./gradlew assembleRelease
-          ./gradlew appDistributionUploadRelease --stacktrace
-        env:
-          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
