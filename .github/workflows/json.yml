@@ -16,7 +16,7 @@ jobs:
         with:
             java-version: '17.x'
             architecture: 'x64'
-            node-version: 16
+            using: 'node16'
 
       - name: Build with Gradle
         run: ./gradlew
