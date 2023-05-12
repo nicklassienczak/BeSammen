@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - - name: Set up JDK
-          uses: actions/setup-java@v1
-          with:
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
             java-version: '17.x'
             architecture: 'x64'
             node-version: 16
