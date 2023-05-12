@@ -35,3 +35,4 @@ jobs:
           ./gradlew appDistributionUploadRelease --stacktrace
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
