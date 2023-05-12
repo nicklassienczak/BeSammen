@@ -17,9 +17,7 @@ jobs:
           java-version: 11
 
       - name: Build with Gradle
-        uses: gradle/wrapper-action@v2
-        with:
-          args: build
+        run: ./gradlew
 
       - name: Authenticate with Firebase
         uses: w9jds/firebase-action@master
