@@ -24,10 +24,10 @@ jobs:
       - name: Authenticate with Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: appdistribution:release --app demo-app --release-notes-file release_notes.txt
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
 
       - name: Build and deploy APK
         run: |
