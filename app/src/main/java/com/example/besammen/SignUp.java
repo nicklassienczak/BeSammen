@@ -55,6 +55,7 @@ public class SignUp extends AppCompatActivity {
     private String name, diagnose;
     private String ImageUriAcessToken;
     private int age;
+    private String ageString;
 
 
 
@@ -71,7 +72,6 @@ public class SignUp extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         mgetAge = findViewById(R.id.getAge);
-        String ageString = mgetAge.getText().toString();
         mgetUserImage = findViewById(R.id.getUserImage);
         mgetUserName = findViewById(R.id.getUserName);
         mgetDiagnose = findViewById(R.id.getDiagnose);
@@ -85,14 +85,14 @@ public class SignUp extends AppCompatActivity {
         mradio_other = findViewById(R.id.radio_other);
 
         //If user click getUserImage, they will be forwarded to the image selector
-        //mgetUserImage.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        //This will take the user to there photo library
-        //        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        //        startActivityForResult(intent, USER_IMAGE);
-        //    }
-        //});
+        mgetUserImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //This will take the user to there photo library
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                startActivityForResult(intent, USER_IMAGE);
+            }
+        });
 
 
 
@@ -102,7 +102,12 @@ public class SignUp extends AppCompatActivity {
 
                 //Get the username
                 name = mgetUserName.getText().toString();
+
+                //Get the diagnose
                 diagnose = mgetDiagnose.getText().toString();
+
+                //Get the age
+                ageString = mgetAge.getText().toString();
                 //Checking if username is empty, if it is, show this message
                 if (name.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Venligst indtast dit navn", Toast.LENGTH_SHORT).show();
@@ -115,9 +120,9 @@ public class SignUp extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Venligst indsæt din diagnose", Toast.LENGTH_SHORT).show();
                 }
                 //Checking if the user have selected a picture
-                //else if (imagePath == null) {
-                //    Toast.makeText(getApplicationContext(), "Venligst indsæt et billede", Toast.LENGTH_SHORT).show();
-                //}
+                else if (imagePath == null) {
+                    Toast.makeText(getApplicationContext(), "Venligst indsæt et billede", Toast.LENGTH_SHORT).show();
+                }
 
                 else {
                     mprogressBarSignUp.setVisibility(View.VISIBLE);
@@ -135,12 +140,6 @@ public class SignUp extends AppCompatActivity {
 
 
 
-        mgetUserImageInImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SignUp.this, ChatOverview.class));
-            }
-        });
 
 
 
