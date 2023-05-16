@@ -86,14 +86,19 @@ public class MainActivity extends AppCompatActivity {
 
                     //Send the sms authentication using firebase
                     PhoneAuthOptions phoneAuthOptions = PhoneAuthOptions.newBuilder(firebaseAuth)
+
                             //To which number
                             .setPhoneNumber(phoneNumber)
+
                             //Set a timeout if they need to get a new sms authentication
                             .setTimeout(60L, TimeUnit.SECONDS)
+
                             //Set the activity
                             .setActivity(MainActivity.this)
+
                             //Set callbacks
                             .setCallbacks(mcallBacks)
+
                             //Then build
                             .build();
 

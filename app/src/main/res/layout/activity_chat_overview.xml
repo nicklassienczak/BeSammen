@@ -69,7 +69,6 @@
             android:layout_height="wrap_content"
             android:text="Kontakter"
             android:id="@+id/contacts">
-
         </com.google.android.material.tabs.TabItem>
 
         <!-- Groups view -->
@@ -78,16 +77,14 @@
             android:layout_height="wrap_content"
             android:text="Grupper"
             android:id="@+id/groups">
-
         </com.google.android.material.tabs.TabItem>
 
         <!-- Events view -->
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Events"
+            android:text="Begivenheder"
             android:id="@+id/events">
-
         </com.google.android.material.tabs.TabItem>
 
 

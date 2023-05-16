@@ -90,7 +90,7 @@
             android:background="#FFFFFF"
             android:hint="Alder"
             android:alpha="0.8"
-            android:inputType="text">
+            android:inputType="number">
 
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
