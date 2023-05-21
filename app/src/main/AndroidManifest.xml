@@ -12,16 +12,16 @@
         android:theme="@style/Theme.BeSammen"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".SmsVerification"
             android:exported="false" />
         <activity
             android:name=".ChatOverview"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="false" />
-        <activity
-            android:name=".ForgotPassword"
             android:exported="false" />
         <activity
             android:name=".SignUp"

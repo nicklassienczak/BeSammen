@@ -34,14 +34,18 @@
             </TextView>
 
             <!-- Search for contacts -->
-            <SearchView
+            <androidx.appcompat.widget.SearchView
                 android:layout_width="wrap_content"
+                android:id="@+id/searchViewChat"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:searchIcon="@drawable/search_white"
+                android:layout_marginLeft="130dp"
+                app:searchHintIcon="@drawable/search_white"
+                app:searchIcon="@drawable/search_white"
+                app:closeIcon="@drawable/close_white"
                 android:layout_centerVertical="true">
 
-            </SearchView>
+            </androidx.appcompat.widget.SearchView>
 
             
         </RelativeLayout>
@@ -67,8 +71,8 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kontakter"
-            android:id="@+id/contacts">
+            android:text="Beskeder"
+            android:id="@+id/chats">
         </com.google.android.material.tabs.TabItem>
 
         <!-- Groups view -->

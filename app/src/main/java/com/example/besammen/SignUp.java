@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -45,14 +46,14 @@ public class SignUp extends AppCompatActivity {
     private ImageView mgetUserImageInImageView;
     private static int USER_IMAGE = 123;
     private Uri imagePath;
-    private RadioButton mradio_man, mradio_woman, mradio_other;
+    private RadioButton mget_radio_man, mget_radio_woman, mget_radio_other;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
     private FirebaseFirestore firebaseFirestore;
 
-    private String name, diagnose;
+    private String name, diagnose, gender;
     private String ImageUriAcessToken;
     private int age;
     private String ageString;
@@ -60,6 +61,7 @@ public class SignUp extends AppCompatActivity {
 
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,9 +82,11 @@ public class SignUp extends AppCompatActivity {
         msaveProfile = findViewById(R.id.saveProfile);
         mprogressBarSignUp = findViewById(R.id.progressBarSignUp);
 
-        mradio_man = findViewById(R.id.radio_man);
-        mradio_woman = findViewById(R.id.radio_woman);
-        mradio_other = findViewById(R.id.radio_other);
+        mget_radio_man = findViewById(R.id.get_radio_man);
+        mget_radio_woman = findViewById(R.id.get_radio_woman);
+        mget_radio_other = findViewById(R.id.get_radio_other);
+
+
 
         //If user click getUserImage, they will be forwarded to the image selector
         mgetUserImage.setOnClickListener(new View.OnClickListener() {
@@ -108,12 +112,14 @@ public class SignUp extends AppCompatActivity {
 
                 //Get the age
                 ageString = mgetAge.getText().toString();
+
+
                 //Checking if username is empty, if it is, show this message
                 if (name.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Venligst indtast dit navn", Toast.LENGTH_SHORT).show();
 
                 }
-                if (ageString.isEmpty()){
+                else if (ageString.isEmpty()){
                     Toast.makeText(getApplicationContext(), "Venligst indtast din alder", Toast.LENGTH_SHORT).show();
                 }
                 else if (diagnose.isEmpty()){
@@ -164,6 +170,7 @@ public class SignUp extends AppCompatActivity {
         //Getting the int
         String ageString = mgetAge.getText().toString();
         age = Integer.parseInt(ageString);
+
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -256,6 +263,7 @@ public class SignUp extends AppCompatActivity {
         userData.put("image", ImageUriAcessToken);
         userData.put("uid", firebaseAuth.getUid());
         userData.put("status", "Online");
+        userData.put("Gender", gender);
 
         documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -279,18 +287,27 @@ public class SignUp extends AppCompatActivity {
 
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.radio_man:
-                if (checked)
+            case R.id.get_radio_man:
+                if (checked){
                     // Gender = Man
+                    gender = mget_radio_man.getText().toString();
                     break;
-            case R.id.radio_woman:
-                if (checked)
-                    // Gender = Woman
+                }
+
+
+            case R.id.get_radio_woman:
+                if (checked){
+                    // Gender is woman
+                    gender = mget_radio_woman.getText().toString();
                     break;
-            case R.id.radio_other:
-                if (checked)
+                }
+
+            case R.id.get_radio_other:
+                if (checked){
                     // Gender = Other
+                    gender = mget_radio_other.getText().toString();
                     break;
+                }
         }
     }
 
