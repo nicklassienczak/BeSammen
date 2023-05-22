@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/BeSammenDarkGreen"
+        android:layout_marginTop="0dp"
+        android:id="@+id/toolBarViewProfile">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/backButtonViewProfile"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back_arrow_white"
+                android:layout_centerVertical="true">
+
+            </ImageButton>
+
+            <!-- Besammen Text -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Din profil"
+                android:layout_toRightOf="@id/backButtonViewProfile"
+                android:id="@+id/contactText"
+                android:layout_marginLeft="10dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white">
+
+            </TextView>
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/personIconProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/centerLine"
+        android:layout_alignLeft="@id/userName"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="-60dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/person_logo">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/goToUpdateProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userName"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Ønsker du at opdatere din profil ?"
+        android:textColor="@color/BeSammenDarkGreen"
+        android:textStyle="bold">
+
+    </TextView>
+
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/toolBarViewProfile"
+        android:layout_marginTop="50dp"
+        android:id="@+id/viewUserImage"
+        app:cardCornerRadius="150dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/person_outline_green"
+            android:id="@+id/viewUserImageInImageView"
+            android:scaleType="centerCrop">
+        </ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <!-- What is your name -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/centerLine"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/userName"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Navn"
+            android:id="@+id/viewUserName"
+            android:clickable="false"
+            android:enabled="false"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:inputType="textCapWords">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/centerLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

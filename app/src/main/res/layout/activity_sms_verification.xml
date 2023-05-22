@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- Arne -->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".SmsVerification">
 
 
     <!-- Center line for easier reactive layout -->
@@ -29,27 +26,13 @@
         android:layout_marginTop="65dp"
         android:orientation="vertical">
 
+
         <ImageView
-            android:layout_width="match_parent"
-            android:id="@+id/beSammenLogo"
-            android:layout_height="wrap_content"
-            android:src="@drawable/besammenlogo">
-        </ImageView>
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Et fælleskab om sygdom"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="16sp">
-
-        </TextView>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:id="@+id/beSammenImg"
             android:layout_gravity="center"
-            android:src="@drawable/img">
+            android:src="@drawable/img_1">
         </ImageView>
 
 
@@ -61,63 +44,54 @@
         android:layout_height="wrap_content"
         android:text="Der sendes en sms for at bekræfte din identitet"
         android:textColor="@color/black"
-        android:layout_below="@id/centerLine"
+        android:layout_above="@id/centerLine"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:textSize="17sp"
         android:layout_centerInParent="true"
         android:textStyle="bold"
-        android:id="@+id/mainText">
+        android:id="@+id/smsAuthText">
 
     </TextView>
 
-    <!-- Country code picker for sms verification -->
-    <com.hbb20.CountryCodePicker
-        android:id="@+id/countryCodePicker"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_below="@id/mainText"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="5dp"
-        app:ccp_arrowColor="#006C75"
-        app:ccp_contentColor="#006C75"
-        app:ccp_defaultLanguage="DANISH"
-        app:ccp_areaCodeDetectedCountry="true"
-        app:ccp_defaultPhoneCode="45">
-
-    </com.hbb20.CountryCodePicker>
-
-
-    <!-- This is where the user inputs there phonenumber for verification -->
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:id="@+id/getPhoneNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/centerLine"
+        android:hint="Indsæt sms..."
+        android:textColorHint="@color/black"
+        android:alpha="0.8"
         android:textAlignment="center"
-        android:textColorHint="@color/white"
-        android:background="#78A5A3"
-        android:hint="Skriv dit nummer her..."
-        android:inputType="number"
-        android:textColor="@color/white"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/countryCodePicker">
+        android:textColor="@color/black"
+        android:id="@+id/getSmsAuth"
+        android:inputType="number">
 
     </EditText>
 
+    <!-- If user have put in wrong number -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modtog ikke en sms, klik her"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/checkSmsAuth"
+        android:layout_marginTop="30dp"
+        android:id="@+id/changeNumber"
+        android:textStyle="bold"
+        android:textColor="#006C75"
+        android:textSize="18sp">
 
-    <!--Send sms verification button -->
+    </TextView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/getPhoneNumber"
+        android:layout_below="@id/getSmsAuth"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="30dp"
-        android:id="@+id/sendSmsAuth"
+        android:layout_marginTop="15dp"
+        android:id="@+id/checkSmsAuth"
         android:background="@drawable/button_design">
 
 
@@ -125,24 +99,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Send sms verifikation"
+            android:text="Bekræft sms"
             android:textColor="@color/white"
             android:textSize="17sp"
             android:textStyle="bold">
 
         </TextView>
     </RelativeLayout>
-    
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/sendSmsAuth"
-        android:id="@+id/progressBarMain"
-        android:layout_marginTop="5dp"
+        android:layout_below="@id/changeNumber"
+        android:id="@+id/progressBarSmsAuth"
+        android:layout_marginTop="10dp"
         android:visibility="invisible">
 
     </ProgressBar>
-
 
 </RelativeLayout>
