@@ -86,8 +86,6 @@
             android:layout_height="wrap_content"
             android:hint="Skriv dit nye navn"
             android:id="@+id/newUserName"
-            android:clickable="false"
-            android:enabled="false"
             android:background="@color/white"
             android:alpha="0.8"
             android:inputType="textCapWords">
