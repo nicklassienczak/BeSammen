@@ -16,8 +16,14 @@ import android.widget.SearchView;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class ChatOverview extends AppCompatActivity {
 
@@ -28,6 +34,10 @@ public class ChatOverview extends AppCompatActivity {
     private androidx.appcompat.widget.Toolbar mtoolBar;
 
     private androidx.appcompat.widget.SearchView msearchViewChat;
+
+    //Used to change the status of the user, if the user leaves the app on this activity
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
 
 
 
@@ -53,6 +63,9 @@ public class ChatOverview extends AppCompatActivity {
         //Set this adapter on our viewpager
         viewPager.setAdapter(pagerAdapter);
         msearchViewChat = findViewById(R.id.searchViewChat);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
 
         //Set custom menu icon to access the toolbar
@@ -121,4 +134,52 @@ public class ChatOverview extends AppCompatActivity {
 
         return true;
     }
+
+
+
+    //Changes the status from offline to online when you open the app
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //Get the path for the collection for Users using Uid to change the status
+        DocumentReference documentReference = firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
+
+        //Here we tell firebase that we want to update the status to online
+        documentReference.update("status", "Aktiv").
+                //We have added a success listener to check if everything is alright. If it is, it will show this message to let the user know
+                        addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getApplicationContext(), "Nu er du nu aktiv", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+    }
+
+
+    //Changes the status from online to offline when you close the app
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        //Get the path for the collection for Users using Uid to change the status
+        DocumentReference documentReference = firebaseFirestore.collection("Users").document(firebaseAuth.getUid());
+
+        //Here we tell firebase that we want to update the status to offline
+        documentReference.update("status", "Ikke aktiv").
+                //We have added a success listener to check if everything is alright. If it is, it will show this message to let the user know
+                        addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getApplicationContext(), "Nu er du ikke længere aktiv", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
+
+
+
 }
