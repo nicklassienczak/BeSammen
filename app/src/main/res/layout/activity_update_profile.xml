@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".UpdateProfile">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/BeSammenDarkGreen"
+        android:layout_marginTop="0dp"
+        android:id="@+id/toolBarUpdateProfile">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/backButtonUpdateProfile"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back_arrow_white"
+                android:layout_centerVertical="true">
+
+            </ImageButton>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Opdater din profil"
+                android:layout_toRightOf="@id/backButtonUpdateProfile"
+                android:id="@+id/contactText"
+                android:layout_marginLeft="10dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white">
+
+            </TextView>
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/toolBarUpdateProfile"
+        android:layout_marginTop="50dp"
+        android:id="@+id/newUserImage"
+        app:cardCornerRadius="150dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/person_outline_green"
+            android:id="@+id/newUserImageInImageView"
+            android:scaleType="centerCrop">
+        </ImageView>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/centerLine"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/userName"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Skriv dit nye navn"
+            android:id="@+id/newUserName"
+            android:background="@color/white"
+            android:alpha="0.8"
+            android:inputType="textCapWords">
+
+        </EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/personIconProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/centerLine"
+        android:layout_alignLeft="@id/userName"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="-60dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/person_logo">
+
+    </ImageView>
+
+    <RelativeLayout
+        android:id="@+id/centerLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/userName"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/updateProfileButton"
+        android:background="@drawable/button_design">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Opdater profil"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold">
+
+        </TextView>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/userName"
+        android:id="@+id/progressBarUpdateProfile"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible">
+
+    </ProgressBar>
+
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "484022379749",
+    "project_id": "besammen-76671",
+    "storage_bucket": "besammen-76671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484022379749:android:ba33181a38ad11e3c4600c",
+        "android_client_info": {
+          "package_name": "com.example.besammen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484022379749-brue9shou67uogq6mgmsnb9ihgiskh0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.besammen",
+            "certificate_hash": "553c8509d87ff430eca7da2c79efbe5107d40f45"
+          }
+        },
+        {
+          "client_id": "484022379749-lt17cre7rq3ghi8q2tiduevqgcu6a0ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2IcAvIs2JYzqKei8Uv3Bdtx7cG7JDBbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484022379749-lt17cre7rq3ghi8q2tiduevqgcu6a0ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ChatOverview">
+    
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/BeSammenDarkGreen"
+        android:layout_marginTop="0dp"
+        android:id="@+id/toolBar">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <!-- Besammen Text -->
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="BeSammen"
+                android:id="@+id/contactText"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white">
+
+            </TextView>
+
+            <!-- Search for contacts -->
+            <androidx.appcompat.widget.SearchView
+                android:layout_width="wrap_content"
+                android:id="@+id/searchViewChat"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginLeft="130dp"
+                app:searchHintIcon="@drawable/search_white"
+                app:searchIcon="@drawable/search_white"
+                app:closeIcon="@drawable/close_white"
+                android:layout_centerVertical="true">
+
+            </androidx.appcompat.widget.SearchView>
+
+            
+        </RelativeLayout>
+
+        
+        
+        
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/include"
+        android:layout_below="@id/toolBar"
+        app:tabTextColor="#77a3a7"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        android:backgroundTint="@color/BeSammenDarkGreen"
+        app:tabIndicatorHeight="3dp"
+        android:layout_marginTop="0dp">
+
+        <!-- Contacts view -->
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Beskeder"
+            android:id="@+id/chats">
+        </com.google.android.material.tabs.TabItem>
+
+        <!-- Groups view -->
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupper"
+            android:id="@+id/groups">
+        </com.google.android.material.tabs.TabItem>
+
+        <!-- Events view -->
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Begivenheder"
+            android:id="@+id/events">
+        </com.google.android.material.tabs.TabItem>
+
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- This one is used to scroll vertically -->
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/include"
+        android:layout_marginTop="0dp"
+        android:id="@+id/fragmentContainer">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>
