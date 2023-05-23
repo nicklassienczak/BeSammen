@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="from"
+        android:text="fra"
         android:textColor="#1E1D1D"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/mainText"
