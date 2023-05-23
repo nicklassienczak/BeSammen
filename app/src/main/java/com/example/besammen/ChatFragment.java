@@ -28,7 +28,7 @@ public class ChatFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private FirebaseAuth firebaseAuth;
     private ImageView mimageViewUser;
-    private FirestoreRecyclerAdapter<BeSammenModel, NoteViewHolder> chatAdapter;
+    private FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder> chatAdapter;
     private RecyclerView mrecyclerView;
 
 
@@ -49,12 +49,12 @@ public class ChatFragment extends Fragment {
        Query query = firebaseFirestore.collection("Users");
        FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
 
-       chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, NoteViewHolder>(allUserName) {
+       chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
            @Override
-           protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
+           protected void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
 
                //Get the name and show it on the chat layout
-               noteViewHolder.specificUserName.setText(beSammenModel.getName());
+               userViewHolder.specificUserName.setText(beSammenModel.getName());
                String uri = beSammenModel.getImage();
 
                //Set profile picture from the user for others to see on there profile
@@ -62,15 +62,15 @@ public class ChatFragment extends Fragment {
 
                //Checking if the user is online
                if (beSammenModel.getStatus().equals("Online")){
-                   noteViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                   userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
                    //Changing the color when online
-                   noteViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
+                   userViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
                }
                else {
-                   noteViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                   userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
                }
 
-               noteViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+               userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View v) {
                        Toast.makeText(getActivity(), "Brugeren er blevet trykket på", Toast.LENGTH_SHORT).show();
@@ -83,10 +83,10 @@ public class ChatFragment extends Fragment {
 
            @NonNull
            @Override
-           public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+           public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_view_layout, parent, false);
-               return new NoteViewHolder(view1);
+               return new UserViewHolder(view1);
 
 
            }
@@ -105,13 +105,13 @@ public class ChatFragment extends Fragment {
 
     }
 
-    public class NoteViewHolder extends RecyclerView.ViewHolder{
+    public class UserViewHolder extends RecyclerView.ViewHolder{
 
         private TextView specificUserName;
         private TextView mstatusOfUser;
 
 
-        public NoteViewHolder(@NonNull View itemView) {
+        public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             specificUserName = itemView.findViewById(R.id.nameOfUser);
             mstatusOfUser = itemView.findViewById(R.id.statusOfUser);
