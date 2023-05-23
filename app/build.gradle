@@ -46,4 +46,6 @@ dependencies {
     implementation group: 'com.hbb20', name: 'ccp', version: '2.5.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
+
 }

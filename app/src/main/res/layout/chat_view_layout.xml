@@ -42,6 +42,7 @@
         </TextView>
 
 
+
         <androidx.cardview.widget.CardView
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -59,6 +60,19 @@
                 android:scaleType="centerCrop">
             </ImageView>
         </androidx.cardview.widget.CardView>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#B4B2B2"
+            android:background="#B4B2B2"
+            android:layout_below="@id/cardViewUser"
+            android:layout_marginTop="8dp">
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
