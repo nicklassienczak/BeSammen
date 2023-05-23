@@ -1,5 +1,6 @@
 package com.example.besammen;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class ChatFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private FirebaseAuth firebaseAuth;
     private ImageView mimageViewUser;
-    private FirestoreRecyclerAdapter<BeSammenModel, NoteViewHolder> chatAdapter;
+    private FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder> chatAdapter;
     private RecyclerView mrecyclerView;
 
 
@@ -38,80 +39,90 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-      //So we can find the elements inside chatFragment.java
-       View view = inflater.inflate(R.layout.chatfragment, container, false);
+        //So we can find the elements inside chatFragment.java
+        View view = inflater.inflate(R.layout.chatfragment, container, false);
 
-       firebaseAuth = FirebaseAuth.getInstance();
-       firebaseFirestore = FirebaseFirestore.getInstance();
-       mrecyclerView = view.findViewById(R.id.recyclerView);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        mrecyclerView = view.findViewById(R.id.recyclerView);
 
-       //Fetch all the users
-       Query query = firebaseFirestore.collection("Users");
-       FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
+        //Fetch all the users
+        //Query query = firebaseFirestore.collection("Users");
 
-       chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, NoteViewHolder>(allUserName) {
-           @Override
-           protected void onBindViewHolder(@NonNull NoteViewHolder noteViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
+        //To show all users except yourself
+        Query query = firebaseFirestore.collection("Users").whereNotEqualTo("uid", firebaseAuth.getUid());
+        FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
 
-               //Get the name and show it on the chat layout
-               noteViewHolder.specificUserName.setText(beSammenModel.getName());
-               String uri = beSammenModel.getImage();
+        chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
+            @Override
+            protected void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
 
-               //Set profile picture from the user for others to see on there profile
-               Picasso.get().load(uri).into(mimageViewUser);
+                //Get the name and show it on the chat layout
+                userViewHolder.specificUserName.setText(beSammenModel.getName());
+                String uri = beSammenModel.getImage();
 
-               //Checking if the user is online
-               if (beSammenModel.getStatus().equals("Online")){
-                   noteViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
-                   //Changing the color when online
-                   noteViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
-               }
-               else {
-                   noteViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
-               }
+                //Set profile picture from the user for others to see on there profile
+                Picasso.get().load(uri).into(mimageViewUser);
 
-               noteViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                       Toast.makeText(getActivity(), "Brugeren er blevet trykket på", Toast.LENGTH_SHORT).show();
-                   }
-               });
+                //Checking if the user is online
+                if (beSammenModel.getStatus().equals("Online")){
+                    userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                    //Changing the color when online
+                    userViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
+                }
+                else {
+                    userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                }
 
-
-
-           }
-
-           @NonNull
-           @Override
-           public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-               View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_view_layout, parent, false);
-               return new NoteViewHolder(view1);
-
-
-           }
-       };
+                //What will happen when you click on a user
+                userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //When click on specific user you go to the specific chat you have with that person
+                        Intent intent = new Intent(getActivity(), SpecificChat.class);
+                        //Parse data from beSammenModel to get the name the uid from the receiver and image
+                        intent.putExtra("name", beSammenModel.getName());
+                        intent.putExtra("receiverUid", beSammenModel.getUid());
+                        intent.putExtra("imageUri", beSammenModel.getImage());
+                        startActivity(intent);
+                    }
+                });
 
 
-       mrecyclerView.setHasFixedSize(true);
-       linearLayoutManager = new LinearLayoutManager(getContext());
-       linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-       mrecyclerView.setLayoutManager(linearLayoutManager);
-       mrecyclerView.setAdapter(chatAdapter);
 
-       return view;
+            }
+
+            @NonNull
+            @Override
+            public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_view_layout, parent, false);
+                return new UserViewHolder(view1);
+
+
+            }
+        };
+
+
+        mrecyclerView.setHasFixedSize(true);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        mrecyclerView.setLayoutManager(linearLayoutManager);
+        mrecyclerView.setAdapter(chatAdapter);
+
+        return view;
 
 
 
     }
 
-    public class NoteViewHolder extends RecyclerView.ViewHolder{
+    public class UserViewHolder extends RecyclerView.ViewHolder{
 
         private TextView specificUserName;
         private TextView mstatusOfUser;
 
 
-        public NoteViewHolder(@NonNull View itemView) {
+        public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             specificUserName = itemView.findViewById(R.id.nameOfUser);
             mstatusOfUser = itemView.findViewById(R.id.statusOfUser);

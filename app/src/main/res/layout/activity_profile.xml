@@ -30,7 +30,6 @@
 
             </ImageButton>
 
-            <!-- Besammen Text -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,7 +37,7 @@
                 android:layout_centerVertical="true"
                 android:text="Din profil"
                 android:layout_toRightOf="@id/backButtonViewProfile"
-                android:id="@+id/contactText"
+                android:id="@+id/yourProfileText"
                 android:layout_marginLeft="10dp"
                 android:textSize="25sp"
                 android:textStyle="bold"
