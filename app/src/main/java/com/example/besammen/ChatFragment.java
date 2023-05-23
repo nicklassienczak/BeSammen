@@ -1,5 +1,6 @@
 package com.example.besammen;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,71 +39,78 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-      //So we can find the elements inside chatFragment.java
-       View view = inflater.inflate(R.layout.chatfragment, container, false);
+        //So we can find the elements inside chatFragment.java
+        View view = inflater.inflate(R.layout.chatfragment, container, false);
 
-       firebaseAuth = FirebaseAuth.getInstance();
-       firebaseFirestore = FirebaseFirestore.getInstance();
-       mrecyclerView = view.findViewById(R.id.recyclerView);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        mrecyclerView = view.findViewById(R.id.recyclerView);
 
-       //Fetch all the users
-       //Query query = firebaseFirestore.collection("Users");
+        //Fetch all the users
+        //Query query = firebaseFirestore.collection("Users");
 
         //To show all users except yourself
         Query query = firebaseFirestore.collection("Users").whereNotEqualTo("uid", firebaseAuth.getUid());
-       FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
+        FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
 
-       chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
-           @Override
-           protected void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
+        chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
+            @Override
+            protected void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
 
-               //Get the name and show it on the chat layout
-               userViewHolder.specificUserName.setText(beSammenModel.getName());
-               String uri = beSammenModel.getImage();
+                //Get the name and show it on the chat layout
+                userViewHolder.specificUserName.setText(beSammenModel.getName());
+                String uri = beSammenModel.getImage();
 
-               //Set profile picture from the user for others to see on there profile
-               Picasso.get().load(uri).into(mimageViewUser);
+                //Set profile picture from the user for others to see on there profile
+                Picasso.get().load(uri).into(mimageViewUser);
 
-               //Checking if the user is online
-               if (beSammenModel.getStatus().equals("Online")){
-                   userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
-                   //Changing the color when online
-                   userViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
-               }
-               else {
-                   userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
-               }
+                //Checking if the user is online
+                if (beSammenModel.getStatus().equals("Online")){
+                    userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                    //Changing the color when online
+                    userViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
+                }
+                else {
+                    userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                }
 
-               userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                       Toast.makeText(getActivity(), "Brugeren er blevet trykket på", Toast.LENGTH_SHORT).show();
-                   }
-               });
-
-
-
-           }
-
-           @NonNull
-           @Override
-           public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-               View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_view_layout, parent, false);
-               return new UserViewHolder(view1);
+                //What will happen when you click on a user
+                userViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //When click on specific user you go to the specific chat you have with that person
+                        Intent intent = new Intent(getActivity(), SpecificChat.class);
+                        //Parse data from beSammenModel to get the name the uid from the receiver and image
+                        intent.putExtra("name", beSammenModel.getName());
+                        intent.putExtra("receiverUid", beSammenModel.getUid());
+                        intent.putExtra("imageUri", beSammenModel.getImage());
+                        startActivity(intent);
+                    }
+                });
 
 
-           }
-       };
+
+            }
+
+            @NonNull
+            @Override
+            public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_view_layout, parent, false);
+                return new UserViewHolder(view1);
 
 
-       mrecyclerView.setHasFixedSize(true);
-       linearLayoutManager = new LinearLayoutManager(getContext());
-       linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
-       mrecyclerView.setLayoutManager(linearLayoutManager);
-       mrecyclerView.setAdapter(chatAdapter);
+            }
+        };
 
-       return view;
+
+        mrecyclerView.setHasFixedSize(true);
+        linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        mrecyclerView.setLayoutManager(linearLayoutManager);
+        mrecyclerView.setAdapter(chatAdapter);
+
+        return view;
 
 
 
