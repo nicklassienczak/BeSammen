@@ -46,7 +46,10 @@ public class ChatFragment extends Fragment {
        mrecyclerView = view.findViewById(R.id.recyclerView);
 
        //Fetch all the users
-       Query query = firebaseFirestore.collection("Users");
+       //Query query = firebaseFirestore.collection("Users");
+
+        //To show all users except yourself
+        Query query = firebaseFirestore.collection("Users").whereNotEqualTo("uid", firebaseAuth.getUid());
        FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
 
        chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
