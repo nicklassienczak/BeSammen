@@ -72,6 +72,9 @@ public class ChatFragment extends Fragment {
                 }
                 else {
                     userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+
+                    //Changes the color to red if the user is not online
+                    userViewHolder.mstatusOfUser.setTextColor(Color.RED);
                 }
 
                 //What will happen when you click on a user
