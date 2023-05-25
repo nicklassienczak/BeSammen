@@ -8,18 +8,6 @@
     tools:context=".SpecificChat">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:alpha="0.6"
-        android:background="@drawable/img">
-
-    </RelativeLayout>
-
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -43,25 +31,6 @@
 
             </ImageButton>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="5dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:layout_toRightOf="@id/backButtonSpecificChat"
-                android:id="@+id/receiverUserImage"
-                app:cardCornerRadius="35dp">
-
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/person_outline_green"
-                    android:id="@+id/receiverUserImageInImageView"
-                    android:scaleType="centerCrop">
-                </ImageView>
-            </androidx.cardview.widget.CardView>
 
 
             <TextView
@@ -69,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Navn på kontakt"
-                android:layout_toRightOf="@id/receiverUserImage"
+                android:layout_toRightOf="@id/backButtonSpecificChat"
                 android:id="@+id/nameOfReceivingUser"
                 android:layout_marginLeft="10dp"
                 android:textSize="25sp"
