@@ -16,6 +16,8 @@ package com.example.besammen;public class BeSammenModel {
         this.age = age;
     }
 
+
+
     public String getName() {
         return name;
     }

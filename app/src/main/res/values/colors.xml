@@ -7,5 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+
+    <!-- Custom colors -->
     <color name="BeSammenDarkGreen">#006C75</color>
+    <color name="SendMessageLightGrey">#A1BEBCBC</color>
+    <color name="SendMessageLighterGrey">#DADADA</color>
+    <color name="BeSammenLightGreen">#78A5A3</color>
+    <color name="BeSammenLightGrey">#A1E4E2E2</color>
 </resources>
