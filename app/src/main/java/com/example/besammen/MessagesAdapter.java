@@ -19,7 +19,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
     private Context context;
     private ArrayList<Messages> messagesArrayList;
 
-    //This will help identifi if the user is sending a message or not
+    //This will help identify if the user is sending a message or not
     private int ITEM_SEND = 1;
     private int ITEM_RECEIVE = 2;
 
@@ -98,21 +98,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         return messagesArrayList.size();
     }
 
-    //We have two layouts so thats why we need to view holder
-
-    class ReceiverViewHolder extends RecyclerView.ViewHolder{
-
-        //We have two things we need to show in our holder
-        TextView msenderMessage, mtimeMessageSent;
-
-
-        public ReceiverViewHolder(@NonNull View itemView) {
-            super(itemView);
-            msenderMessage = itemView.findViewById(R.id.senderMessage);
-            mtimeMessageSent = itemView.findViewById(R.id.timeMessageSent);
-
-        }
-    }
+    //We have two layouts so thats why we need two view holder
 
     class SenderViewHolder extends RecyclerView.ViewHolder{
 
@@ -121,6 +107,20 @@ public class MessagesAdapter extends RecyclerView.Adapter {
 
 
         public SenderViewHolder(@NonNull View itemView) {
+            super(itemView);
+            msenderMessage = itemView.findViewById(R.id.senderMessage);
+            mtimeMessageSent = itemView.findViewById(R.id.timeMessageSent);
+
+        }
+    }
+
+    class ReceiverViewHolder extends RecyclerView.ViewHolder{
+
+        //We have two things we need to show in our holder
+        TextView msenderMessage, mtimeMessageSent;
+
+
+        public ReceiverViewHolder(@NonNull View itemView) {
             super(itemView);
             msenderMessage = itemView.findViewById(R.id.senderMessage);
             mtimeMessageSent = itemView.findViewById(R.id.timeMessageSent);
