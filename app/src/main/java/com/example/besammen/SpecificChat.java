@@ -80,7 +80,7 @@ public class SpecificChat extends AppCompatActivity {
         mrecyclerViewSpecificChat = findViewById(R.id.recyclerViewSpecificChat);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance("https://besammen-76671-default-rtdb.europe-west1.firebasedatabase.app");
 
         calendar = Calendar.getInstance();
         //This is to change the format so that it is in hours and minuts, and the "a" is for 24 hour format
@@ -211,6 +211,7 @@ public class SpecificChat extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     //Here i can display a toast to make sure the message has been sent
+                                                    System.out.println("Beskeden er blevet sendt");
                                                 }
                                             });
                                 }
