@@ -96,7 +96,8 @@ public class SpecificChat extends AppCompatActivity {
         //Getting the receiver name from chat fragment
         mreceiverName = getIntent().getStringExtra("name");
 
-
+        //To take the data from the intent
+        intent = getIntent();
 
         //To create the rooms for the sender, we have to get the sender and receiver Uid
         senderRoom = msenderUid + mreceiverUid;
@@ -153,10 +154,6 @@ public class SpecificChat extends AppCompatActivity {
             }
         });
 
-
-
-        //To take the data from the intent
-        intent = getIntent();
 
         //Set the toolbar as the action bar
         setSupportActionBar(mtoolBarSpecificChat);
