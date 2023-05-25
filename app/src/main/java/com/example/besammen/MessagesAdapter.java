@@ -63,7 +63,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         //If its not the sender, then it's the receiver
         else {
             ReceiverViewHolder receiverViewHolder = (ReceiverViewHolder)holder;
-            receiverViewHolder.msenderMessage.setText(messages.getMessage());
+            receiverViewHolder.mreceiverMessage.setText(messages.getMessage());
             receiverViewHolder.mtimeMessageSent.setText(messages.getCurrentTime());
 
 
@@ -117,12 +117,12 @@ public class MessagesAdapter extends RecyclerView.Adapter {
     class ReceiverViewHolder extends RecyclerView.ViewHolder{
 
         //We have two things we need to show in our holder
-        TextView msenderMessage, mtimeMessageSent;
+        TextView mreceiverMessage, mtimeMessageSent;
 
 
         public ReceiverViewHolder(@NonNull View itemView) {
             super(itemView);
-            msenderMessage = itemView.findViewById(R.id.senderMessage);
+            mreceiverMessage = itemView.findViewById(R.id.receiverMessage);
             mtimeMessageSent = itemView.findViewById(R.id.timeMessageSent);
 
         }
