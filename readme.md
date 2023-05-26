@@ -13,6 +13,7 @@
  - Formål
  - Medlemmere
  - Licens
+ - Contribute
 
 ## 👀Introduktion
 
