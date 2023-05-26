@@ -4,7 +4,7 @@
 
 ## 📋 Oversigt
 
-BeSammen er en app udviklet i Java på Android Studio, som er designet til at lette planlægningen og organiseringen af sociale arrangementer. Vi er et åbent samarbejdsprojekt, og vi vil meget gerne have dig med!
+BeSammen er et fællesskab, hvor mennesker med samme diagnose mødes online i mindre grupper. I din tilknyttede BeSammen gruppe er der mulighed for trygt at dele tanker, følelser og erfaringer både før, under og efter et behandlingsforløb.
 
 ## 🌍 Projektstruktur
 
