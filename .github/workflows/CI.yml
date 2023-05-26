@@ -1,30 +1,31 @@
+name: CI - Quality Assurance
+
 on:
   push:
-    branches-ignore:
+    branches:
+      - master
+  pull_request:
+    branches:
       - master
 
 jobs:
-  build-and-push:
+  quality-assurance:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.MY_TOKEN || github.token }}
-          fetch-depth: 0
-      - name: Rebase branch
-        run: |
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git config --global user.name "${GITHUB_ACTOR}"
-          git rebase origin/master
 
-      - name: Build code
-        uses: gradle/gradle-build-action@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
         with:
-          args: build
+          java-version: '11'
 
-      - name: Push changes to default branch
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
+
+      - name: Run unit tests
+        run: ./gradlew test
+
+      - name: Run lint check
+        run: ./gradlew lintDebug
