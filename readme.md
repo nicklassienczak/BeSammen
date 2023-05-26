@@ -39,5 +39,6 @@ Hvis du/i vil i kontakt med os kan du lave et mention ved at tagge os med `@` pl
 
 Dette projekt er licenseret under en [Creative Commons Kreditering-Ikkekommerciel 4.0 International-licens](http://creativecommons.org/licenses/by-nc/4.0/).
 
-## 🕹️Contribute
+## 🕹️Contribute (https://github.com/nicklassienczak/BeSammen/blob/e789eac970a3cecceecea62ed0bf839091fd94b6/Contribute.md)
 Se vores contribute fil for mere information! Kom glad🦆
+
