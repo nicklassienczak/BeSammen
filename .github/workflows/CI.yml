@@ -3,10 +3,10 @@ name: CI - Quality Assurance
 on:
   push:
     branches:
-      - master
+      - 11-unit-testing
   pull_request:
     branches:
-      - master
+      - 11-unit-testing
 
 jobs:
   quality-assurance:
