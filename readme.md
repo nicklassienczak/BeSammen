@@ -25,10 +25,10 @@ Formålet ved vores projekt er at lave et online fælleskab, hvor personer med d
 
 ## Medlemmere 
 
-😎Arne Fogh @arnefogh
-🤠Gustav Frederik S.  @gust9196
-🌞Mads Runge @madsrunge
-🧐Nicklas Sienczak @nicklassienczak
+-😎Arne Fogh @arnefogh
+-🤠Gustav Frederik S.  @gust9196
+-🌞Mads Runge @madsrunge
+-🧐Nicklas Sienczak @nicklassienczak
 
 Hvis du/i vil i kontakt med os kan du lave et mention ved at tagge os med `@` plus brugernavnet. Så vil vi få en notifikation, så vi kan hjælpe dig. Ovenover kan ses vores brugernavne🥰
 
