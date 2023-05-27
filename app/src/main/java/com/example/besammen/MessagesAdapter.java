@@ -65,14 +65,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             ReceiverViewHolder receiverViewHolder = (ReceiverViewHolder)holder;
             receiverViewHolder.mreceiverMessage.setText(messages.getMessage());
             receiverViewHolder.mtimeMessageSent.setText(messages.getCurrentTime());
-
-
         }
-
-
-
-
-
     }
 
     //This will identify who the sender is
@@ -127,7 +120,5 @@ public class MessagesAdapter extends RecyclerView.Adapter {
 
         }
     }
-
-
 
 }

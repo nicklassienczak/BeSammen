@@ -59,6 +59,7 @@ public class SmsVerification extends AppCompatActivity {
         mcheckSmsAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //enteredSmsAuth now stores the code the user have entered
                 enteredSmsAuth = mgetSmsAuth.getText().toString();
 
                 //If the user haven't put in the Sms authentication code, show this message
@@ -98,8 +99,10 @@ public class SmsVerification extends AppCompatActivity {
     }
 
 
+    //This method gets called when the user have clicked on the button to verify the code
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
 
+        //We then add a on complete listener to decide what happens if it is successful or not
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

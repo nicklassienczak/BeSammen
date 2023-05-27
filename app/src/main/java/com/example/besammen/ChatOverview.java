@@ -151,7 +151,7 @@ public class ChatOverview extends AppCompatActivity {
                         addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(getApplicationContext(), "Nu er du nu aktiv", Toast.LENGTH_SHORT).show();
+                        System.out.println("Du er nu aktiv");
                     }
                 });
 
@@ -174,7 +174,7 @@ public class ChatOverview extends AppCompatActivity {
                         addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(getApplicationContext(), "Nu er du ikke længere aktiv", Toast.LENGTH_SHORT).show();
+                        System.out.println("Du er ikke længere aktiv");
                     }
                 });
 
