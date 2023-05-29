@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+//Arne
 
 public class MessagesAdapter extends RecyclerView.Adapter {
 
@@ -42,9 +43,9 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             return new SenderViewHolder(view);
         }
         else {
-
+            //To attach the context of the message to the receiver chat layout
             View view = LayoutInflater.from(context).inflate(R.layout.receiver_chat_layout, parent, false);
-
+            //This will bind the text to the receiver view holder
             return new ReceiverViewHolder(view);
 
         }
@@ -104,6 +105,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         TextView msenderMessage, mtimeMessageSent;
 
 
+        //This is used to bind the variables to the textviews inside the chat sender layout
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
             msenderMessage = itemView.findViewById(R.id.senderMessage);
@@ -119,6 +121,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         TextView mreceiverMessage, mtimeMessageSent;
 
 
+        //This is used to bind the variables to the textviews inside the chat receiver layout
         public ReceiverViewHolder(@NonNull View itemView) {
             super(itemView);
             mreceiverMessage = itemView.findViewById(R.id.receiverMessage);

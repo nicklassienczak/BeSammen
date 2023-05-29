@@ -23,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.squareup.picasso.Picasso;
 
+//Arne
 public class ChatFragment extends Fragment {
 
     private FirebaseFirestore firebaseFirestore;

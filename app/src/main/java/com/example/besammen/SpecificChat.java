@@ -30,7 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
+//Arne
 public class SpecificChat extends AppCompatActivity {
 
     private EditText mgetMessage;
