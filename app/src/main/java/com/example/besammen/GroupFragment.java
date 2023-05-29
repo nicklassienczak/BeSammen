@@ -56,7 +56,8 @@ public class GroupFragment extends Fragment {
     Intent intent;
 
     //We need to be able to store the name and Uid of the receiver and the sender
-    private String mreceiverName, mreceiverUid, msenderUid;
+    private String mreceiverName, msenderUid;
+    String mreceiverUid;
 
     //We need a string to hold the current time
     private String curretTime;

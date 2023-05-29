@@ -9,10 +9,107 @@
         android:layout_height="wrap_content"
         android:text="Begivenheder"
         android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
         android:textStyle="bold"
+        android:id="@+id/eventsText"
         android:textSize="40sp"
         android:layout_centerInParent="true">
-
     </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:backgroundTint="@color/white"
+        android:background="@color/white"
+        android:layout_below="@id/eventsText"
+        android:layout_marginTop="8dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/eventsText"
+        android:layout_height="200dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/message_design"
+        android:backgroundTint="@color/BeSammenLightGrey"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Drik en kop kaffe"
+            android:background="@drawable/display_name_design"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:id="@+id/eventText"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/BeSammenDarkGreen">
+        </TextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lørdag den 3.6 2023"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/whatDate"
+            android:layout_alignParentBottom="true"
+            android:paddingRight="25dp"
+            android:textColor="@color/black">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/joinEvent"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/baseline_event_available_24">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deltagere:"
+            android:layout_below="@id/eventText"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/whoJoinText"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="Liva Sun Miene, Merete Vandsbuk, Cecilie Maglund..."
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"
+            android:layout_below="@id/whoJoinText"
+            android:id="@+id/whoJoin">
+
+        </TextView>
+
+
+
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
