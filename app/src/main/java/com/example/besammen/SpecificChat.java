@@ -139,10 +139,6 @@ public class SpecificChat extends AppCompatActivity {
 
 
 
-
-
-
-
         //If the user clicks on the back button then we simple finish this activity
         mbackButtonSpecificChat.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -123,6 +123,7 @@ public class GroupFragment extends Fragment {
                                     mnameOfSenderUser = userName;
                                 }
                                 //The same for the receiver
+                                //Dosen't work
                                 if (userUid.equals(mreceiverUid)){
                                     mnameOfReceivingUser = userName;
                                 }
@@ -238,17 +239,12 @@ public class GroupFragment extends Fragment {
                     //After the message have been sent, then we will clear the edittext
                     mgetMessageGroup.setText(null);
 
-
                 }
-
 
             }
         });
 
-
         return viewGROUP;
-
-
 
     }
 

@@ -293,9 +293,7 @@ public class UpdateProfile extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     //This is used to take the selected image and put it as the users profile image
     @Override
@@ -306,8 +304,6 @@ public class UpdateProfile extends AppCompatActivity {
             imagePath = data.getData();
             mnewUserImageInImageView.setImageURI(imagePath);
         }
-
-
 
 
         super.onActivityResult(requestCode, resultCode, data);
@@ -331,8 +327,6 @@ public class UpdateProfile extends AppCompatActivity {
                     }
                 });
 
-
-
     }
 
 
@@ -355,7 +349,6 @@ public class UpdateProfile extends AppCompatActivity {
                 });
 
     }
-
 
 
 }

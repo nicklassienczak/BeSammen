@@ -235,6 +235,7 @@ public class SignUp extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Billede gemt", Toast.LENGTH_SHORT).show();
                         sendDataToCloudFirestore();
                     }
+                    //If the image didnt get sent to firestore write this message
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -263,7 +264,7 @@ public class SignUp extends AppCompatActivity {
         userData.put("diagnose", diagnose);
         userData.put("image", ImageUriAcessToken);
         userData.put("uid", firebaseAuth.getUid());
-        userData.put("status", "Online");
+        userData.put("status", "Aktiv");
         userData.put("Gender", gender);
 
         documentReference.set(userData).addOnSuccessListener(new OnSuccessListener<Void>() {

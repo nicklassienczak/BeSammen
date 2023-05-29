@@ -1,4 +1,8 @@
-package com.example.besammen;public class userProfileData {
+package com.example.besammen;
+
+public class userProfileData {
+
+    //This is a model class for the user profile data
 
     public String userName, userUID, userDiagnose;
     public int userAge;
@@ -7,6 +11,7 @@ package com.example.besammen;public class userProfileData {
 
     }
 
+    //Constructor to assign the parameters to the right values
     public userProfileData(String userName, String userUID, String userDiagnose, int userAge) {
         this.userName = userName;
         this.userUID = userUID;

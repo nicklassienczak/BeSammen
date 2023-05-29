@@ -137,11 +137,7 @@ public class SmsVerification extends AppCompatActivity {
         });
 
 
-
-
     }
-
-
 
 
 }
