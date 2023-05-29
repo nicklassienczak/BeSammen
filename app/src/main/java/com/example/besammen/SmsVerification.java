@@ -51,7 +51,7 @@ public class SmsVerification extends AppCompatActivity {
         mchangeNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SmsVerification.this, MainActivity.class);
+                Intent intent = new Intent(SmsVerification.this, com.example.besammen.MainActivity.class);
                 startActivity(intent);
             }
         });

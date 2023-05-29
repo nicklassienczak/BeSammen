@@ -161,12 +161,12 @@ public class ProfileActivity extends AppCompatActivity {
         //Here we tell firebase that we want to update the status to offline
         documentReference.update("status", "Ikke aktiv").
                 //We have added a success listener to check if everything is alright. If it is, it will show this message to let the user know
-                addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(getApplicationContext(), "Nu er du ikke længere aktiv", Toast.LENGTH_SHORT).show();
-            }
-        });
+                        addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getApplicationContext(), "Nu er du ikke længere aktiv", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 }
