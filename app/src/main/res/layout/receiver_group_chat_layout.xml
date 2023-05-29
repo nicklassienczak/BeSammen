@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modtagerens navn"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:id="@+id/receiverNameOnMessage">
+
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/receiver_group_chat_design"
+        android:layout_below="@id/receiverNameOnMessage"
+        android:layout_marginRight="50dp"
+        android:id="@+id/receiverMessageLayout">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp"
+            android:paddingRight="40dp"
+            android:text="Modtagerens besked bliver vist i den her boks "
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:paddingBottom="7dp"
+            android:paddingTop="7dp"
+            android:id="@+id/receiverMessage">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeMessageSent"
+            android:textSize="10sp"
+            android:layout_toRightOf="@id/receiverMessage"
+            android:layout_marginLeft="-40dp"
+            android:layout_alignBottom="@id/receiverMessage"
+            android:text="12:32"
+            android:textColor="@color/black"
+            android:padding="7dp">
+
+        </TextView>
+        
+        
+        
+    </RelativeLayout>
+
+</RelativeLayout>
