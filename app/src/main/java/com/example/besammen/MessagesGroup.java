@@ -1,6 +1,6 @@
 package com.example.besammen;
 
-
+//Nicklas
 public class MessagesGroup {
 
     private String message, senderId, currentTime, senderName, receiverName;

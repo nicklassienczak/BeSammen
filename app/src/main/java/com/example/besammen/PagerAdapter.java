@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+//Nicklas
 //This class will control the rest of the fragments
 
 public class PagerAdapter extends FragmentPagerAdapter {
