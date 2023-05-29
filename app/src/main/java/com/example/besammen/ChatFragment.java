@@ -65,13 +65,14 @@ public class ChatFragment extends Fragment {
                 Picasso.get().load(uri).into(mimageViewUser);
 
                 //Checking if the user is online
-                if (beSammenModel.getStatus().equals("Online")){
+                if (beSammenModel.getStatus().equals("Aktiv")){
                     userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
                     //Changing the color when online
                     userViewHolder.mstatusOfUser.setTextColor(Color.GREEN);
                 }
                 else {
                     userViewHolder.mstatusOfUser.setText(beSammenModel.getStatus());
+                    userViewHolder.mstatusOfUser.setTextColor(Color.RED);
                 }
 
                 //What will happen when you click on a user

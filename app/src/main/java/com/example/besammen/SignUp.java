@@ -207,6 +207,7 @@ public class SignUp extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //We want to minimize the fetch time, for that
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         //Decreasing the image size
@@ -275,8 +276,6 @@ public class SignUp extends AppCompatActivity {
 
         //Could add a onFailureListener
 
-
-
     }
 
 
@@ -323,11 +322,7 @@ public class SignUp extends AppCompatActivity {
         }
 
 
-
-
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-
 
 }

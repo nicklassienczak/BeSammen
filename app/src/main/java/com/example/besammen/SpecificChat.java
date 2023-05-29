@@ -60,7 +60,7 @@ public class SpecificChat extends AppCompatActivity {
     private String senderRoom, receiverRoom;
 
     private FirebaseAuth firebaseAuth;
-    FirebaseDatabase firebaseDatabase;
+    private FirebaseDatabase firebaseDatabase;
 
     private MessagesAdapter messagesAdapter;
     private ArrayList<Messages> messagesArrayList;

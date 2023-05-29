@@ -36,7 +36,7 @@
             android:layout_toRightOf="@id/cardViewUser"
             android:text="Status visning"
             android:textSize="12sp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="17dp"
             android:layout_marginTop="3dp"
             android:id="@+id/statusOfUser"
             android:layout_below="@id/nameOfUser"

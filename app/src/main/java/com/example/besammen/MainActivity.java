@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mcallBacks;
 
 
-    private ImageView mbeSammenLogo;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         mcallBacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                //If you want to automatically fetch the sms authentication (OTP)
+                //If we want to automatically fetch the sms authentication (OTP) we can add that here
             }
 
             @Override
@@ -138,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 //Creating intent
                 Intent intent = new Intent(MainActivity.this, SmsVerification.class);
 
-                //Parsing the data
+                //Parsing the data in the "SmsCode" for the SmsVerification to match and see if the codesent matches what the user puts in
                 intent.putExtra("SmsCode", codeSent);
 
                 //Starting the activity
@@ -146,16 +144,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-        mbeSammenLogo = findViewById(R.id.beSammenLogo);
-
-
-        mbeSammenLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SmsVerification.class));
-            }
-        });
 
 
 

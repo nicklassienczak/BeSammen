@@ -2,7 +2,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#878787">
+    android:background="#E1E0E0">
 
+
+
+    <!-- In this recycler view all the messages will be shown -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/writeAndSendMessageGroup"
+        android:id="@+id/recyclerViewGroupChat"
+        android:padding="5dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/writeAndSendMessageGroup"
+        android:layout_marginBottom="10dp">
+
+        <!-- Edittext to write the message -->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Skriv en besked"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="65dp"
+            android:paddingLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textColorHint="#403F3F"
+            android:textAlignment="textStart"
+            android:alpha="0.8"
+            android:background="@drawable/send_message_design"
+            android:id="@+id/getMessageGroup"
+            android:paddingRight="10dp">
+
+        </EditText>
+
+        <!-- To send the message -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textColor="@color/BeSammenDarkGreen"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/getMessageGroup"
+            android:layout_marginStart="-57dp"
+            android:textSize="20sp"
+            android:id="@+id/sendMessageGroup"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </RelativeLayout>
 
 </RelativeLayout>
