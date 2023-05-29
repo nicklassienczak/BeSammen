@@ -21,6 +21,12 @@ BeSammen er et fællesskab, hvor mennesker med samme diagnose mødes online i mi
 
  - Applikationes målgruppe er unge kvinder med autisme i aldersgruppen 18-25 år.
  -  Applikationen gør det muligt for individer med autisme i aldersgruppen 18-25, at peer-to-peer støttegrupper samt chatte med andre brugere.
+
+## 🪄Funktioner
+![BeSammen Demo](https://github.com/nicklassienczak/BeSammen/assets/111958097/8b7210af-f303-41c4-ad24-144bb7e5e114)
+
+https://github.com/nicklassienczak/BeSammen/assets/111958097/8b7210af-f303-41c4-ad24-144bb7e5e114
+
  
 ## 🤔Formål
 
