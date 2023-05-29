@@ -41,6 +41,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+//Nicklas
 public class GroupFragment extends Fragment {
 
     private EditText mgetMessageGroup;

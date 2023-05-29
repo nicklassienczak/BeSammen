@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
+// Nicklas
+
 public class MessagesAdapterGroup extends RecyclerView.Adapter {
 
     private Context context;
