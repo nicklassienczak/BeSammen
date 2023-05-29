@@ -35,6 +35,7 @@ public class MessagesAdapterGroup extends RecyclerView.Adapter {
         if (viewType == ITEM_SEND_GROUP){
 
             //Then we have to attach the context of the message to the sender chat layout
+            //And inflate it
             View view = LayoutInflater.from(context).inflate(R.layout.sender_group_chat_layout, parent, false);
             //This will bind the text to the sender view holder
             return new SenderViewHolderGROUP(view);

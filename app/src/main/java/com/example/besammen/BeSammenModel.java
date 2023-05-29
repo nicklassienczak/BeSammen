@@ -1,4 +1,6 @@
-package com.example.besammen;public class BeSammenModel {
+package com.example.besammen;
+
+public class BeSammenModel {
 
     private String name, image, gender, diagnose, uid, status;
     private int age;

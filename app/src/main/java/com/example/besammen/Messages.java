@@ -1,5 +1,6 @@
 package com.example.besammen;
 
+//This is a model class that represents a message in the specific chat
 
 public class Messages {
 

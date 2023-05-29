@@ -52,12 +52,9 @@ public class GroupFragment extends Fragment {
     //This is used so store the text the user puts in the edittext before it gets sent to the sender chat layout
     private String inputMessageGroup, mnameOfReceivingUser, mnameOfSenderUser;
 
-    //We need a intent because we are getting the data from our chat fragment
-    Intent intent;
-
     //We need to be able to store the name and Uid of the receiver and the sender
-    private String mreceiverName, msenderUid;
-    String mreceiverUid;
+    private String msenderUid;
+    private String mreceiverUid;
 
     //We need a string to hold the current time
     private String curretTime;
@@ -100,17 +97,6 @@ public class GroupFragment extends Fragment {
         mreceiverUid = firebaseFirestore.collection("Users").getId();
 
 
-
-        //Who is the receiver, receiving Uid
-        //We are getting that Uid from the chat fragment
-        //mreceiverUid = getIntent().getStringExtra("receiverUid");
-        //Getting the receiver name from chat fragment
-        //mreceiverName = getIntent().getStringExtra("name");
-
-        //To take the data from the intent
-        //intent = getIntent();
-
-
         String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
@@ -120,23 +106,30 @@ public class GroupFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()){
+                            //To hold the Uid and usernames of all the users
                             List<String> allUsersUid = new ArrayList<>();
                             List<String> allUsersNames = new ArrayList<>();
 
                             for (QueryDocumentSnapshot document : task.getResult()){
+                                //To get the id and name
                                 String userUid = document.getId();
                                 String userName = document.getString("name");
                                 if (!userUid.equals(currentUserUid)){
                                     allUsersUid.add(userUid);
                                     allUsersNames.add(userName);
                                 }
+                                //If userUid is equal to the msenderUid it's the sender and the sender name should be displayed on that message
                                 if (userUid.equals(msenderUid)){
                                     mnameOfSenderUser = userName;
                                 }
-                                if (userUid.equals(mnameOfReceivingUser)){
+                                //The same for the receiver
+                                if (userUid.equals(mreceiverUid)){
                                     mnameOfReceivingUser = userName;
                                 }
                             }
+
+                            //To display the message according to who is viewing we have made two different rooms, one that displays
+                            //the current users messages on the right, and the rest on the left
                             senderRoom = currentUserUid + allUsersUid.get(0);
                             receiverRoom = allUsersUid.get(0) + currentUserUid;
 

@@ -53,6 +53,7 @@ public class ChatFragment extends Fragment {
         Query query = firebaseFirestore.collection("Users").whereNotEqualTo("uid", firebaseAuth.getUid());
         FirestoreRecyclerOptions<BeSammenModel> allUserName = new FirestoreRecyclerOptions.Builder<BeSammenModel>().setQuery(query, BeSammenModel.class).build();
 
+        //The chat adapter is the adapter we use to show the users on the chatfragment inside the chatoverview in the kontakter tabItem
         chatAdapter = new FirestoreRecyclerAdapter<BeSammenModel, UserViewHolder>(allUserName) {
             @Override
             protected void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i, @NonNull BeSammenModel beSammenModel) {
@@ -89,8 +90,6 @@ public class ChatFragment extends Fragment {
                     }
                 });
 
-
-
             }
 
             @NonNull
@@ -113,10 +112,9 @@ public class ChatFragment extends Fragment {
 
         return view;
 
-
-
     }
 
+    //The user view holder declares where the data on each user is stored
     public class UserViewHolder extends RecyclerView.ViewHolder{
 
         private TextView specificUserName;
@@ -128,10 +126,6 @@ public class ChatFragment extends Fragment {
             specificUserName = itemView.findViewById(R.id.nameOfUser);
             mstatusOfUser = itemView.findViewById(R.id.statusOfUser);
             mimageViewUser = itemView.findViewById(R.id.imageViewUser);
-
-
-
-
 
         }
     }

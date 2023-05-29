@@ -23,11 +23,13 @@ public class MessagesAdapter extends RecyclerView.Adapter {
     private int ITEM_SEND = 1;
     private int ITEM_RECEIVE = 2;
 
+    //This is a constructor, where we assign the two parameters to the correct values
     public MessagesAdapter(Context context, ArrayList<Messages> messagesArrayList) {
         this.context = context;
         this.messagesArrayList = messagesArrayList;
     }
 
+    //To assign the messages to the correct chat layout
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,6 +50,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         }
     }
 
+    //To delcare which viewHolder the message should be posted in. If position equals to 1, then it's the sender, if not it's the receiver
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
@@ -56,6 +59,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         if (holder.getClass() == SenderViewHolder.class){
             //The sender view holder will receive this information
 
+            //We get the data from the Messages.java
             SenderViewHolder senderViewHolder = (SenderViewHolder)holder;
             senderViewHolder.msenderMessage.setText(messages.getMessage());
             senderViewHolder.mtimeMessageSent.setText(messages.getCurrentTime());
@@ -93,6 +97,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
 
     //We have two layouts so thats why we need two view holder
 
+    //We only want the message the user have sent and the timestamp the message was sent on to display that on the message aswell.
     class SenderViewHolder extends RecyclerView.ViewHolder{
 
         //We have two things we need to show in our holder
@@ -107,6 +112,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         }
     }
 
+    //We only want the message the receiver have sent and the timestamp the message was sent on to display that on the message aswell.
     class ReceiverViewHolder extends RecyclerView.ViewHolder{
 
         //We have two things we need to show in our holder

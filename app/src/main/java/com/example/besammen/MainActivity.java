@@ -22,6 +22,7 @@ import com.hbb20.CountryCodePicker;
 
 import java.util.concurrent.TimeUnit;
 
+//Nicklas
 public class MainActivity extends AppCompatActivity {
 
     private EditText mgetPhoneNumber;
@@ -59,17 +60,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //What happens when you click on the msendSmsAuth
         msendSmsAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //To hold the number
                 String number;
 
+                //To get the number
                 number = mgetPhoneNumber.getText().toString();
                 //If the phonenumber is empty show this message
                 if (number.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Angiv venligst dit nummer for at fortsætte", Toast.LENGTH_SHORT).show();
                 }
-                //If the phonenumber isn't 8 digits long, show this message
+                //If the phonenumber isn't 8 digits long, show this message. We currently only want to have danish phonenumbers
                 else if (number.length()!=8) {
                     Toast.makeText(getApplicationContext(),"Der er sket en fejl, dit angivede nummer skal være på 8 cifre", Toast.LENGTH_SHORT).show();
                 }
@@ -143,11 +147,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-
-
-
-
-
 
 
     }

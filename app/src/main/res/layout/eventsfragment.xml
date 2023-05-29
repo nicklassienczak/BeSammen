@@ -76,7 +76,7 @@
             android:layout_alignParentEnd="true"
             android:id="@+id/joinEvent"
             android:layout_marginRight="25dp"
-            android:src="@drawable/baseline_event_available_24">
+            android:src="@drawable/events_icon">
 
         </ImageView>
 
