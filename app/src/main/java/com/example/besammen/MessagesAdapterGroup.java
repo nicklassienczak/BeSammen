@@ -17,13 +17,13 @@ import java.util.ArrayList;
 public class MessagesAdapterGroup extends RecyclerView.Adapter {
 
     private Context context;
-    private ArrayList<MessagesGroup> messagesArrayList;
+    private ArrayList<com.example.besammen.MessagesGroup> messagesArrayList;
 
     //This will help identify if the user is sending a message or not
     private int ITEM_SEND_GROUP = 1;
     private int ITEM_RECEIVE = 2;
 
-    public MessagesAdapterGroup(Context context, ArrayList<MessagesGroup> messagesArrayList) {
+    public MessagesAdapterGroup(Context context, ArrayList<com.example.besammen.MessagesGroup> messagesArrayList) {
         this.context = context;
         this.messagesArrayList = messagesArrayList;
     }
@@ -53,7 +53,7 @@ public class MessagesAdapterGroup extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         //If the position equals the sender
-        MessagesGroup messages = messagesArrayList.get(position);
+        com.example.besammen.MessagesGroup messages = messagesArrayList.get(position);
         if (holder.getClass() == SenderViewHolderGROUP.class){
             //The sender view holder will receive this information
 
@@ -74,7 +74,7 @@ public class MessagesAdapterGroup extends RecyclerView.Adapter {
     //This will identify who the sender is
     @Override
     public int getItemViewType(int position) {
-        MessagesGroup messages = messagesArrayList.get(position);
+        com.example.besammen.MessagesGroup messages = messagesArrayList.get(position);
         //If the current users id is euqual to the sender id then is the sender
         if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(messages.getSenderId())){
             return ITEM_SEND_GROUP;

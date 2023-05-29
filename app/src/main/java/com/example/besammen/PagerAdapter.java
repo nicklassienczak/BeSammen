@@ -28,7 +28,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
 
             case 1:
-                return new GroupFragment();
+                return new com.example.besammen.GroupFragment();
 
 
             case 2:

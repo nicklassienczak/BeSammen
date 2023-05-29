@@ -69,8 +69,8 @@ public class GroupFragment extends Fragment {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseFirestore firebaseFirestore;
 
-    private MessagesAdapterGroup messagesAdapterGroup;
-    private ArrayList<MessagesGroup> messagesArrayList;
+    private com.example.besammen.MessagesAdapterGroup messagesAdapterGroup;
+    private ArrayList<com.example.besammen.MessagesGroup> messagesArrayList;
 
 
     @Nullable
@@ -123,6 +123,7 @@ public class GroupFragment extends Fragment {
                                     mnameOfSenderUser = userName;
                                 }
                                 //The same for the receiver
+                                //Dosen't work
                                 if (userUid.equals(mreceiverUid)){
                                     mnameOfReceivingUser = userName;
                                 }
@@ -142,14 +143,14 @@ public class GroupFragment extends Fragment {
 
                             //To store all the messages inside the realtime database
                             DatabaseReference databaseReference = firebaseDatabase.getReference().child("groupChats").child(senderRoom).child("groupMessages");
-                            messagesAdapterGroup = new MessagesAdapterGroup(getActivity(), messagesArrayList);
+                            messagesAdapterGroup = new com.example.besammen.MessagesAdapterGroup(getActivity(), messagesArrayList);
                             databaseReference.addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     //Now we have to clear the previous arraylist
                                     messagesArrayList.clear();
                                     for (DataSnapshot snapshot1 : snapshot.getChildren()){
-                                        MessagesGroup messages = snapshot1.getValue(MessagesGroup.class);
+                                        com.example.besammen.MessagesGroup messages = snapshot1.getValue(com.example.besammen.MessagesGroup.class);
                                         messagesArrayList.add(messages);
                                     }
                                     messagesAdapterGroup.notifyDataSetChanged();
@@ -169,7 +170,7 @@ public class GroupFragment extends Fragment {
                             //This is because we want to start recyclerview from reverse
                             linearLayoutManager.setStackFromEnd(true);
                             mrecyclerViewGroupChat.setLayoutManager(linearLayoutManager);
-                            messagesAdapterGroup = new MessagesAdapterGroup(getActivity(), messagesArrayList);
+                            messagesAdapterGroup = new com.example.besammen.MessagesAdapterGroup(getActivity(), messagesArrayList);
                             mrecyclerViewGroupChat.setAdapter(messagesAdapterGroup);
 
                         }
@@ -206,7 +207,7 @@ public class GroupFragment extends Fragment {
 
                     //Now we have to send this message
                     //This will create a new message through the message class, and all the necessary info is being parsed into that
-                    MessagesGroup messages = new MessagesGroup(inputMessageGroup, firebaseAuth.getUid(), curretTime, mnameOfSenderUser, mnameOfReceivingUser, date.getTime());
+                    com.example.besammen.MessagesGroup messages = new com.example.besammen.MessagesGroup(inputMessageGroup, firebaseAuth.getUid(), curretTime, mnameOfSenderUser, mnameOfReceivingUser, date.getTime());
 
                     //Now we have to store that on our database
                     firebaseDatabase = FirebaseDatabase.getInstance();
@@ -238,17 +239,12 @@ public class GroupFragment extends Fragment {
                     //After the message have been sent, then we will clear the edittext
                     mgetMessageGroup.setText(null);
 
-
                 }
-
 
             }
         });
 
-
         return viewGROUP;
-
-
 
     }
 
