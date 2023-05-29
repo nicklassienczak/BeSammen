@@ -1,7 +1,9 @@
 package com.example.besammen;
 
 
-public class Messages {
+import android.app.Activity;
+
+public class Messages extends Activity {
 
     private String message, senderId, currentTime;
     private long timeStamp;
